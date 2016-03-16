@@ -14,7 +14,26 @@
 		F8AE1C771C9929F10035D62D /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8AE1C751C9929F10035D62D /* CoreData.xcdatamodeld */; };
 		F8AE1C791C9929F10035D62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8AE1C781C9929F10035D62D /* Assets.xcassets */; };
 		F8AE1C7C1C9929F10035D62D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AE1C7A1C9929F10035D62D /* LaunchScreen.storyboard */; };
+		F8AE1C841C992A720035D62D /* 城市邮编最终整理_方便导入数据库.txt in Resources */ = {isa = PBXBuildFile; fileRef = F8AE1C831C992A720035D62D /* 城市邮编最终整理_方便导入数据库.txt */; };
+		F8AE1C951C9943E30035D62D /* PostCode+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE1C921C9943E30035D62D /* PostCode+CoreDataProperties.m */; };
+		F8AE1C961C9943E30035D62D /* PostCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE1C941C9943E30035D62D /* PostCode.m */; };
+		F8AE1C9A1C9961860035D62D /* Alert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AE1C991C9961860035D62D /* Alert.framework */; };
+		F8AE1C9B1C9961860035D62D /* Alert.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8AE1C991C9961860035D62D /* Alert.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8AE1C9C1C9961860035D62D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8AE1C9B1C9961860035D62D /* Alert.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F8AE1C661C9929F10035D62D /* CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +47,12 @@
 		F8AE1C781C9929F10035D62D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8AE1C7B1C9929F10035D62D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8AE1C7D1C9929F10035D62D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8AE1C831C992A720035D62D /* 城市邮编最终整理_方便导入数据库.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "城市邮编最终整理_方便导入数据库.txt"; sourceTree = "<group>"; };
+		F8AE1C911C9943E30035D62D /* PostCode+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PostCode+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F8AE1C921C9943E30035D62D /* PostCode+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PostCode+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F8AE1C931C9943E30035D62D /* PostCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCode.h; sourceTree = "<group>"; };
+		F8AE1C941C9943E30035D62D /* PostCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCode.m; sourceTree = "<group>"; };
+		F8AE1C991C9961860035D62D /* Alert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alert.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8AE1C9A1C9961860035D62D /* Alert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +70,11 @@
 		F8AE1C5D1C9929F10035D62D = {
 			isa = PBXGroup;
 			children = (
+				F8AE1C991C9961860035D62D /* Alert.framework */,
+				F8AE1C911C9943E30035D62D /* PostCode+CoreDataProperties.h */,
+				F8AE1C921C9943E30035D62D /* PostCode+CoreDataProperties.m */,
+				F8AE1C931C9943E30035D62D /* PostCode.h */,
+				F8AE1C941C9943E30035D62D /* PostCode.m */,
 				F8AE1C681C9929F10035D62D /* CoreData */,
 				F8AE1C671C9929F10035D62D /* Products */,
 			);
@@ -60,6 +91,7 @@
 		F8AE1C681C9929F10035D62D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F8AE1C831C992A720035D62D /* 城市邮编最终整理_方便导入数据库.txt */,
 				F8AE1C6C1C9929F10035D62D /* AppDelegate.h */,
 				F8AE1C6D1C9929F10035D62D /* AppDelegate.m */,
 				F8AE1C6F1C9929F10035D62D /* ViewController.h */,
@@ -92,6 +124,7 @@
 				F8AE1C621C9929F10035D62D /* Sources */,
 				F8AE1C631C9929F10035D62D /* Frameworks */,
 				F8AE1C641C9929F10035D62D /* Resources */,
+				F8AE1C9C1C9961860035D62D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,7 +146,6 @@
 				TargetAttributes = {
 					F8AE1C651C9929F10035D62D = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = LP6RFHXTZE;
 					};
 				};
 			};
@@ -141,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8AE1C7C1C9929F10035D62D /* LaunchScreen.storyboard in Resources */,
+				F8AE1C841C992A720035D62D /* 城市邮编最终整理_方便导入数据库.txt in Resources */,
 				F8AE1C791C9929F10035D62D /* Assets.xcassets in Resources */,
 				F8AE1C741C9929F10035D62D /* Main.storyboard in Resources */,
 			);
@@ -153,9 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8AE1C961C9943E30035D62D /* PostCode.m in Sources */,
 				F8AE1C771C9929F10035D62D /* CoreData.xcdatamodeld in Sources */,
 				F8AE1C711C9929F10035D62D /* ViewController.m in Sources */,
 				F8AE1C6E1C9929F10035D62D /* AppDelegate.m in Sources */,
+				F8AE1C951C9943E30035D62D /* PostCode+CoreDataProperties.m in Sources */,
 				F8AE1C6B1C9929F10035D62D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +303,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoreData/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyoubang.CoreData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,7 +320,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CoreData/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyoubang.CoreData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
