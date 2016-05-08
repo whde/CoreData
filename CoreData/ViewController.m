@@ -27,6 +27,11 @@
     [self.view addSubview:_tableView];
     
     [self readData];
+    
+    // 键盘通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
 }
 
 - (void)readData {
@@ -107,6 +112,9 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@   %@   %@   %@   %@   %@", postcode.id, postcode.province, postcode.city, postcode.district, postcode.cityId, postcode.postCode];
     return cell;
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [_searchBar resignFirstResponder];
+}
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (!searchText.length) {
@@ -118,7 +126,7 @@
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"province" ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"city" ascending:NO],
                                 [NSSortDescriptor sortDescriptorWithKey:@"district" ascending:NO]];
-    request.predicate = [NSPredicate predicateWithFormat:@"province CONTAINS %@ OR city CONTAINS %@ OR district CONTAINS %@", searchText, searchText, searchText];
+    request.predicate = [NSPredicate predicateWithFormat:@"province CONTAINS %@ OR city CONTAINS %@ OR district CONTAINS %@ OR cityId CONTAINS %@ OR postCode CONTAINS %@ OR id CONTAINS %@", searchText, searchText, searchText, searchText, searchText, searchText];
     NSError *error = nil;
     NSArray *b = [del.managedObjectContext executeFetchRequest:request error:&error];
     _dataSource = [[NSMutableArray alloc] initWithArray:b];
@@ -126,12 +134,39 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     PostCode *postcode = [_dataSource objectAtIndex:indexPath.row];
     Alert *alert = [[Alert alloc] initWithTitle:@"详细" message:[NSString stringWithFormat:@"数据ID   :%@\n省份  :%@\n市  :%@\n区  :%@\n区号 :%@\n邮编 :%@\n", postcode.id, postcode.province, postcode.city, postcode.district, postcode.cityId, postcode.postCode] delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil, nil];
     [alert setContentAlignment:NSTextAlignmentLeft];
     [alert setLineSpacing:5];
     [alert setFont:[UIFont systemFontOfSize:17]];
     [alert show];
+}
+
+
+#pragma mark - 键盘显示/隐藏
+/**
+ *  键盘显示
+ *
+ *  @param note
+ */
+- (void)keyBoardWillShow:(NSNotification *)note{
+    CGRect rect = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
+        _tableView.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height-rect.size.height);
+    }completion:^(BOOL finished) {
+    }];
+}
+
+/**
+ *  键盘隐藏
+ *
+ *  @param note
+ */
+- (void)keyBoardWillHide:(NSNotification *)note{
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
+        _tableView.frame = CGRectMake(0, 20, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-20);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
